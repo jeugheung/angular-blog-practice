@@ -3,6 +3,7 @@ import { PostsService } from '../shared/post.service';
 import { AuthService } from '../shared/services/auth.service';
 import { Post } from '../shared/interfaces'
 import { Subscription } from 'rxjs';
+import { SearchPipe } from '../shared/search.pipe';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -13,6 +14,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   posts: Post[] = []
   pSub: Subscription
+  searchStr: string
 
   constructor(private postsService:  PostsService) { }
 
