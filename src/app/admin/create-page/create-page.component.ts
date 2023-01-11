@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Post } from '../shared/interfaces';
 import { PostsService } from '../shared/post.service';
@@ -8,6 +8,7 @@ import { PostsService } from '../shared/post.service';
   templateUrl: './create-page.component.html',
   styleUrls: ['./create-page.component.scss']
 })
+
 export class CreatePageComponent implements OnInit {
 
   form: FormGroup
