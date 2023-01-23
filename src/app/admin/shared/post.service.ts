@@ -37,8 +37,7 @@ export class PostsService {
     return this.http.get<Post>(`${environment.fbDBUrl}/posts/${id}.json`)
       .pipe(map((post: Post) => {
         return {
-          ...post,
-          id,
+          ...post, id,
           date: new Date(post.date)
         }
       }))
@@ -49,6 +48,7 @@ export class PostsService {
   }
 
   update(post: Post): Observable<Post> {
+    console.log(post)
     return this.http.patch<Post>(`${environment.fbDBUrl}/posts/${post.id}.json`, post)
   }
 }
