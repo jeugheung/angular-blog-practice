@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AuthService } from './shared/services/auth.service'
 import { SharedModule } from "./shared/shared.module";
 import { AuthGuard } from "./shared/services/auth.guard";
+import { SearchPipe } from "./shared/search.pipe";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AuthGuard } from "./shared/services/auth.guard";
     LoginPageComponent,
     DashboardPageComponent,
     CreatePageComponent,
-    EditPageComponent
+    EditPageComponent,
+    SearchPipe
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,11 @@ import { AuthGuard } from "./shared/services/auth.guard";
     RouterModule.forChild([
       {
         path: '', component: AdminLayoutComponent, children: [
-          {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
+          {
+            path: '',
+            redirectTo: '/admin/login',
+            pathMatch: 'full'
+          },
           {path: 'login', component: LoginPageComponent},
           {path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard]},
           {path: 'create', component: CreatePageComponent, canActivate: [AuthGuard]},
